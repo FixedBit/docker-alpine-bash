@@ -1,11 +1,15 @@
 #!/bin/bash
 
-# Change this to be what you need
-LOCAL_MOUNT="/alpine-store"
+# uses .user folder
+LOCAL_MOUNT=`dirname "$0"`/../.user
 
+# Using "home" as the network here
+LOCAL_NETWORK=home
+
+# We were called directly with no parameters
 [[ $# -lt 1 ]] && { 
     # Give me a shell to play with
-    docker run --rm -it -v "${LOCAL_MOUNT}:/user" docker.fixedbit.com/alpine-bash; 
+    docker run --rm -it -v "${LOCAL_MOUNT}:/user" --network "${LOCAL_NETWORK}" docker.fixedbit.com/alpine-bash; 
     exit 0; 
 }
 
@@ -25,4 +29,5 @@ case "$1" in
     echo "** Push for Registry **"
     docker-compose push
     ;;
+
 esac
