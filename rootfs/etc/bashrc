@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Set our shell prompt
+export PS1='\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\h\[\e[m\]\[\e[31m\]]\[\e[m\]\[\e[0;32m\][\[\e[m\]\[\e[38;5;214m\]\W\[\e[m\]\e[1;34m\]\$\[\e[m\]\[\e[32m\]]\[\e[m\]\[\033[00m\] '
+
+# Load our aliases if found, otherwise defaults
+if [ -f "~/.aliases" ]; then
+    . ~/.aliases
+elif [ -f "/etc/aliases" ]; then
+    . /etc/aliases
+fi

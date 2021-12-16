@@ -1,0 +1,18 @@
+version: "3.8"
+
+# Create network with:
+# docker network create -d bridge --attachable home
+networks:
+  home:
+    external: true
+
+services:
+  alpine-bash:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: fixedbit/alpine-bash
+    # Set userid and groupid to what you need
+    user: 1000:1000
+    networks:
+      - home

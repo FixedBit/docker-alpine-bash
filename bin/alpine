@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Change this to be what you need
+LOCAL_MOUNT="/alpine-store"
+
+[[ $# -lt 1 ]] && { 
+    # Give me a shell to play with
+    docker run --rm -it -v "${LOCAL_MOUNT}:/user" docker.fixedbit.com/alpine-bash; 
+    exit 0; 
+}
+
+case "$1" in
+
+  -build)
+    echo "** Building **"
+    docker-compose build
+    ;;
+
+  -build-force)
+    echo "** Building forced docker containers **"
+    docker-compose build --no-cache
+    ;;
+
+  -push)
+    echo "** Push for Registry **"
+    docker-compose push
+    ;;
+esac

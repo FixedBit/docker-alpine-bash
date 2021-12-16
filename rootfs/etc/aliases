@@ -1,0 +1,11 @@
+alias cp='cp -v'
+alias cpr='cp -r'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+alias tm='ps -ef | grep'
+
+alias ll='ls -l'
