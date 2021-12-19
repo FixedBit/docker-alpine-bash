@@ -12,6 +12,8 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     image: fixedbit/alpine-bash
+    volumes:
+      - ./.user:/user
     # Set userid and groupid to what you need
     user: 1000:1000
     networks:
